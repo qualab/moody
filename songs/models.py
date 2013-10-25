@@ -56,8 +56,7 @@ class Selection(models.Model):
 
     # строковое представление
     def __str__(self):
-        return 'Аккаунт: "{account}"; Настроение: "{mood}"; Песня: "{song}"; " + \
-                    "Время: {moment:%d.%m.%y %H:%M:%S}'.format(
+        return 'Аккаунт: "{account}"; Настроение: "{mood}"; Песня: "{song}"; "Время: {moment:%d.%m.%y %H:%M:%S}'.format(
                             account=self.account.name,
                             mood=self.mood.name,
                             song=self.song.name,

@@ -4,6 +4,12 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
+from songs.models import Account, Mood, Song, Selection
+admin.site.register(Account)
+admin.site.register(Mood)
+admin.site.register(Song)
+admin.site.register(Selection)
+
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'moody.views.home', name='home'),
