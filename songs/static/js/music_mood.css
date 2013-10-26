@@ -16,8 +16,6 @@
     height: inherit;
     background-color: #DAE1E8;
     float: right;
-
-
 }
 .right-side table{
     width: 100%;
@@ -38,11 +36,13 @@
 }
 #openapi_profile{
     margin: 0 auto;
-    width: 162px;
+    position: fixed;
+    /*width: 162px;*/
 }
 .exit-div{
-   margin: 0 auto;
-   width: 50px;
+    margin: 0 auto;
+    /*width: 50px;*/
+    float: right;
 }
 #avatar-div{
     margin: 0 auto;
@@ -55,7 +55,9 @@
 .hidden-picture{
     display: none;
 }
+.head-background{
 
+}
 .pictures-table{
     width: inherit;
     height: inherit;
@@ -65,6 +67,7 @@
 }
 #openapi_block{
     float: right;
+    width: 50%;
 }
 #popupContact{
     position: fixed !important;
@@ -104,7 +107,7 @@
     background-image: url('../images/artleo.jpg');
 }
 .mood-picture-1{
-    background-image: url('../images/DExNC00Nj.jpg');
+    background-image: url('../images/jump.jpg');
 }
 .mood-picture-2{
     background-image: url('../images/mood_weekends.jpg');
@@ -113,7 +116,7 @@
     background-image: url('../images/grumpy_cat.jpg');
 }
 .mood-picture-4{
-    background-image: url('../images/136533.jpg');
+    background-image: url('../images/dance.jpg');
 }
 .mood-picture-5{
     background-image: url('../images/the-matrix.jpg');
@@ -122,7 +125,7 @@
     background-image: url('../images/troll.jpg');
 }
 .mood-picture-7{
-    background-image: url('../images/949zjGljYgY.jpg');
+    background-image: url('../images/slowpoke.jpg');
 }
 .mood-picture-8{
     background-image: url('../images/wolf.jpg');
