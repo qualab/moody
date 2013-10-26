@@ -14,9 +14,17 @@ function addRandomPictures(){
     $table.find('td').bind('click',function(event){
         $('.button').removeClass().addClass('button ' + $(event.target).attr('class'));
         disablePopup();
-        console.log($(event.target).attr('my-number'));
-
+      //  console.log($(event.target).attr('my-number'));
+        httpGet('/mood/'+ $(event.target).attr('my-number'));
     });
+}
+
+function httpGet(theUrl){
+    var xmlHttp=null;
+    xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET",theUrl,false);
+    xmlHttp.send(null);
+    return;
 }
 
 var popupStatus = 0;
