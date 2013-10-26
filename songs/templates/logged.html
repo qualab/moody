@@ -3,6 +3,12 @@
 {% block head_addition %}
     <script>
 
+
+        function logout() {
+            eraseCookie('vk_id');
+            window.location.reload();
+        }
+
     (function ($, undefined) {
         function dod() {
             var user_id = getcookie('vk_id');
@@ -11,10 +17,6 @@
             })
         }
 
-        function logout() {
-            eraseCookie('vk_id');
-            window.location.reload();
-        }
 
         $(document).ready(dod);
     }(jQuery))
