@@ -20,7 +20,6 @@
 
     <script language="javascript">
 
-
         var user_id = 0;
 
         function authInfo(response) {
@@ -38,14 +37,13 @@
             }
         }
 
-        VK.Auth.getLoginStatus(authInfo);
+    /*    VK.Auth.getLoginStatus(authInfo);
         VK.UI.button('login_button');
 
-        VK.Api.call('users.get', {uids: user_id}, function (r) {
+/*        VK.Api.call('users.get', {uids: user_id}, function (r) {
             if (r.response) {
                 alert('Привет, ' + r.response[0].first_name + ' ' + r.response[0].last_name);
             }
-        });
-
+        });*/
     </script>
 {% endblock %}

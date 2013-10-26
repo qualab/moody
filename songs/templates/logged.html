@@ -3,45 +3,40 @@
 {% block head_addition %}
     <script>
 
-    function dod () {
+    (function ($, undefined) {
+        function dod() {
             var user_id = getcookie('vk_id');
             VK.Api.call('users.get', {"fields": 'photo_50'}, function (r) {
-                $('#avatar').attr('src', (r.response[0].photo_50))
+                $('#avatar').attr('src', (r.response[0].photo_50));
             })
-    }
-
-
-     $(document).ready(dod
-     );
-        function eraseCookie(name) {
-            document.cookie = name + '=; Max-Age=0';
         }
 
         function logout() {
             eraseCookie('vk_id');
             window.location.reload();
         }
+
+        $(document).ready(dod);
+    }(jQuery))
     </script>
     <script src="/static/js/mood_music.js"></script>
     <link rel="stylesheet" href="/static/js/music_mood.css" type="text/css">
     <link href="/static/js/jquery/no-theme/jquery-ui-1.10.3.custom.css" rel="stylesheet">
-    <script src="/static/js/jquery/jquery-1.9.1.js"></script>
-    <script src="/static/js/jquery/jquery-ui-1.10.3.custom.js"></script>
     <script type="text/javascript">
-        $(document).ready(function(){
+        $(document).ready(function () {
             addRandomPictures();
-            $(".button").click(function(){
+            $(".button").click(function () {
                 centerPopup();
                 loadPopup();
             });
-            $("#popupContactClose").click(function(){
+            $("#popupContactClose").click(function () {
                 disablePopup();
             });
-    //            $("#backgroundPopup").click(function(){
-    //                disablePopup();
-    //            });
-            $(document).keypress(function(e){
-                if(e.keyCode==27 && popupStatus==1){
+            //            $("#backgroundPopup").click(function(){
+            //                disablePopup();
+            //            });
+            $(document).keypress(function (e) {
+                if (e.keyCode == 27 && popupStatus == 1) {
                     disablePopup();
                 }
             });
