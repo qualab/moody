@@ -3,16 +3,19 @@
 {% block gen_audio %}
     <script>
         $(document).ready(function () {
-            VK.Api.call('audio.get', {"owner_id" : user_id, "count" : "100"}, function(r) {
+            VK.Api.call('audio.get', {"owner_id" : getcookie('vk_id'), "count" : "100"}, function(r) {
                 if (r.response) {
-                    var Res = {};
+                    var Res = {},
+                        song = {};
                     Res.audio = [];
                     for (var i = 0; i < 91; i++) {
-                        Res.audio.push(
-                                {'id': r.response[i].aid,
-                                    'url': r.response[i].url,
-                                    'name': r.response[i].artist + ' - ' + r.response[i].title
-                                });
+                        song = r.response[i] || {};
+                        if(song.aid !== undefined && song.url !== undefined)
+                            Res.audio.push(
+                                    {'id': song.aid,
+                                        'url': song.url,
+                                        'name': song.artist + ' - ' + song.title
+                                    });
                     }
                     $('body').create_list(Res.audio);
                 }
