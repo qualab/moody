@@ -12,10 +12,10 @@
 
     <!-- Bootstrap core CSS -->
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="styles.css" type="text/css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="http://getbootstrap.com/examples/offcanvas/offcanvas.css" rel="stylesheet">
+     <link href="styles.css" type="text/css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -33,8 +33,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Музыка по настроению</a>
+          <a class="navbar-brand home_button" href="#">Музыка по настроению</a>
         </div>
+          <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav sign_in_style">
+                  <li class=" sign_in_style"><a href="#">Войти</a></li>
+              </ul>
+          </div><!-- /.nav-collapse -->
       </div><!-- /.container -->
     </div><!-- /.navbar -->
 
@@ -50,9 +55,11 @@
     </div><!--/span-->
     </div><!--/row-->
 
+    <div>
+
    {%block content%}
     {%endblock%}
-
+    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
