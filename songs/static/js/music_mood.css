@@ -36,8 +36,9 @@
 .pictures-table{
     width: inherit;
     height: inherit;
-    background-color: mediumseagreen;
+    background-color: darkgrey;
     margin-top: 5px;
+    border-radius: 25px;
 }
 #popupContact{
     position: fixed !important;
