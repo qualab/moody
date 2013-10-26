@@ -40,6 +40,9 @@
     margin: 0 auto;
     width: 50px;
 }
+.sign_in_style{
+    width: 500px !important;
+}
 .hidden-picture{
     display: none;
 }
