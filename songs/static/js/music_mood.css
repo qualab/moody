@@ -65,7 +65,7 @@
 .pictures-table{
     width: inherit;
     height: inherit;
-    background-color: darkgrey;
+    /*background-color: darkgrey;*/
     margin-top: 5px;
     border-radius: 25px;
 }
@@ -77,6 +77,9 @@
     position: fixed !important;
     width: 500px;
     height: 500px;
+    z-index: 1;
+    background-color: yellowgreen;
+     /*background-color: darkgrey;*/
 }
 #popupContactClose{
     color: black;
