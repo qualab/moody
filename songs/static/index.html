@@ -19,6 +19,26 @@
     <link href="./js/jquery/no-theme/jquery-ui-1.10.3.custom.css" rel="stylesheet">
     <script src="./js/jquery/jquery-1.9.1.js"></script>
     <script src="./js/jquery/jquery-ui-1.10.3.custom.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            addRandomPictures();
+            $(".button").click(function(){
+                centerPopup();
+                loadPopup();
+            });
+            $("#popupContactClose").click(function(){
+                disablePopup();
+            });
+//            $("#backgroundPopup").click(function(){
+//                disablePopup();
+//            });
+            $(document).keypress(function(e){
+                if(e.keyCode==27 && popupStatus==1){
+                    disablePopup();
+                }
+            });
+        });
+    </script>
 </head>
   <body>
     <div id="vk_api_transport" style="position: absolute; top: -10000px;"><script type="text/javascript" src="./js/openapi.js" async=""></script></div>
@@ -67,17 +87,27 @@
 
       <div id="vk_login" style="margin: 0px auto 20px; width: 125px;" onclick="doLogin();"><table cellspacing="0" cellpadding="0" id="openapi_UI_0" onmouseover="VK.UI._change(1, 0);" onmouseout="VK.UI._change(0, 0);" onmousedown="VK.UI._change(2, 0);" onmouseup="VK.UI._change(1, 0);" style="cursor: pointer; border: 0px; font-family: tahoma, arial, verdana, sans-serif, Lucida Sans; font-size: 10px;"><tbody><tr style="vertical-align: middle"><td><div style="border: 1px solid #3b6798;border-radius: 2px 0px 0px 2px;-moz-border-radius: 2px 0px 0px 2px;-webkit-border-radius: 2px 0px 0px 2px;"><div style="border-width: 1px; border-style: solid; border-color: rgb(126, 156, 188) rgb(92, 130, 171) rgb(92, 130, 171); background-color: rgb(109, 141, 177); color: rgb(255, 255, 255); text-shadow: rgb(69, 104, 142) 0px 1px; height: 15px; padding: 2px 4px 0px 6px; line-height: 13px;">Войти</div></div></td><td><div style="background: url(http://vk.com/images/btns.png) 0px -42px no-repeat; width: 21px; height: 21px"></div></td><td><div style="border: 1px solid rgb(59, 103, 152); border-top-left-radius: 0px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-bottom-left-radius: 0px; background-position: 0px -42px;"><div style="border-width: 1px; border-style: solid; border-color: rgb(126, 156, 188) rgb(92, 130, 171) rgb(92, 130, 171); background-color: rgb(109, 141, 177); color: rgb(255, 255, 255); text-shadow: rgb(69, 104, 142) 0px 1px; height: 15px; padding: 2px 6px 0px 4px; line-height: 13px;">Контакте</div></div></td></tr></tbody></table></div>
     </div>
-    <div class="main-table">
-        <div class='left-side'>
-            <div class="list">
-                <a >Все записи</a>
-            </div>
-            <div class="list">
-                <a onclick="addRandomPictures()">Выбрать по настроению</a>
-            </div>
-        </div>
-        <div class='right-side'>
+    <!--<div class="main-table">-->
+        <!--<div class='left-side'>-->
+            <!--<div class="list">-->
+                <!--<a >Все записи</a>-->
+            <!--</div>-->
+            <!--<div class="list">-->
+                <!--<a onclick="addRandomPictures()">Выбрать по настроению</a>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class='right-side'>-->
+
+        <!--</div>-->
+    <!--</div>-->
+    <div class="popup-block">
+        <center>
+            <div class="button no-mood"></div>
+        </center>
+        <div id="popupContact" class="hidden-picture">
+            <a id="popupContactClose">  Закрыть   </a>
 
         </div>
+        <!--<div id="backgroundPopup"></div>-->
     </div>
 </body></html>
