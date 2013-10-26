@@ -73,6 +73,7 @@
     position: fixed !important;
     width: 500px;
     height: 500px;
+    z-index: 100500;
 }
 #popupContactClose{
     color: black;
