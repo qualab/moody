@@ -25,10 +25,7 @@ def set_mood(request, mood_id):
     account.mood = Mood.objects.get(pk=int(mood_id))
     account.save()
     return None
-<<<<<<< HEAD
 
 
 def popular(request):
     return render(request, 'audio_list.html', {})
-=======
->>>>>>> 93957e89c0c53dc116ce5bcd0c1483cc43b14dbf
