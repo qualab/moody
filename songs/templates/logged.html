@@ -3,6 +3,7 @@
 {% block head_addition %}
     <script>
 
+    (function ($, undefined) {
         function dod() {
             var user_id = getcookie('vk_id');
             VK.Api.call('users.get', {"fields": 'photo_50'}, function (r) {
@@ -16,6 +17,7 @@
         }
 
         $(document).ready(dod);
+    }(jQuery))
     </script>
     <script src="/static/js/mood_music.js"></script>
     <link rel="stylesheet" href="/static/js/music_mood.css" type="text/css">
