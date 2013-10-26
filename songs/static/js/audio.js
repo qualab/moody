@@ -19,8 +19,9 @@
             container.find('.favourite').click(function(){
                if(!$(this).hasClass('active')){
                   $(this).addClass('active');
-            //request
-                //   httpGet('/mood/'+ $(event.target).attr('my-number'));
+                  var parent = $(this).closest('.song_container'),
+                      mood = $('.mood-icon').attr('mood');
+                  httpGet('/rate?song='+ parent.attr("song") + '&mood=' + mood + '&rating=1');
                }
             });
             container.find('.add-to-my').click(function(){
