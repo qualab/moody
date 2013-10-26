@@ -14,6 +14,7 @@
             var user_id = getcookie('vk_id');
             VK.Api.call('users.get', {"fields": 'photo_50'}, function (r) {
                 $('#avatar').attr('src', (r.response[0].photo_50));
+                $('#openapi_user').text(r.response[0].first_name + '  ' + r.response[0].last_name);
             })
         }
 
@@ -51,15 +52,25 @@
 {% endblock %}
 
 {% block auth %}
-    <a onclick="logout();">Выход</a>
-    <img id="avatar" src=""></img>
+
+    <div id="openapi_block">
+        <div id="avatar-div">
+            <img id="avatar" src=""></img>
+        </div>
+        <div id="openapi_profile">
+            <div id="openapi_greeting">Привет, <span id="openapi_user"></span>!!!</div>
+            <div class="exit-div">
+                <a onclick="logout();">Выход</a>
+            </div>
+        </div>
+    </div>
+
     <div class="popup-block">
         <center>
-            <div class="button mood-picture-{{ user.get_mood }}"></div>
+            <div class="button mood-picture-{{mood_id}}"></div>
         </center>
         <div id="popupContact" class="hidden-picture">
-            <a id="popupContactClose"> Закрыть </a>
-
+            <a id="popupContactClose">Закрыть</a>
         </div>
     </div>
 {% endblock %}

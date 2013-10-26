@@ -29,6 +29,28 @@
     background-size: cover;
     border-radius: 25px;
 }
+#openapi_user{
+    color : white;
+    font-weight: bold;
+}
+#openapi_greeting{
+    color: white;
+}
+#openapi_profile{
+    margin: 0 auto;
+    width: 162px;
+}
+.exit-div{
+   margin: 0 auto;
+   width: 50px;
+}
+#avatar-div{
+    margin: 0 auto;
+    width: 50px;
+}
+.sign_in_style{
+    width: 500px !important;
+}
 .hidden-picture{
     display: none;
 }
