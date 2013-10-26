@@ -5,11 +5,57 @@
 {% endblock %}
 
 {% block auth %}
-    <a>Auth VK here</a>
+    <a>
+        <div id="login_button" onclick="VK.Auth.login(authInfo,8);">Войти</div>
+    </a>
 {% endblock %}
 
 {% block menu %}
     <ul class="nav">
         <li class="active"><a href="#">Популярное</a></li>
     </ul>
+{% endblock %}
+
+{% block head_addition %}
+
+    <script language="javascript">
+
+        function setcookie(name, value, expires, path, domain, secure) {
+            document.cookie = name + "=" + escape(value) +
+                    ((expires) ? "; expires=" + (new Date(expires)) : "") +
+                    ((path) ? "; path=" + path : "") +
+                    ((domain) ? "; domain=" + domain : "") +
+                    ((secure) ? "; secure" : "");
+        }
+
+        var user_id = 0;
+
+        VK.init({
+            apiId: 3956483
+        });
+        function authInfo(response) {
+            if (response.session) {
+                document.getElementById("login_button").style.display = "none";
+                user_id = response.session.mid;
+                var d = new Date();
+                // Увеличиваем дату на 6 месяцев.
+                d.setMonth(d.getMonth() + 6);
+                setcookie('vk_id', user_id, d);
+                window.location.reload();
+
+            } else {
+                alert('not auth');
+            }
+        }
+
+        VK.Auth.getLoginStatus(authInfo);
+        VK.UI.button('login_button');
+
+        VK.Api.call('users.get', {uids: user_id}, function (r) {
+            if (r.response) {
+                alert('Привет, ' + r.response[0].first_name + ' ' + r.response[0].last_name);
+            }
+        });
+
+    </script>
 {% endblock %}
