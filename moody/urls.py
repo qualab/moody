@@ -17,7 +17,7 @@ import songs.views
 urlpatterns = patterns('',
     url(r'^$', songs.views.home, name='home'),
     url(r'^mood/(\d+)$', songs.views.set_mood, name='mood'),
-
+    url(r'^rate$', songs.views.rate, name='rate'),
     url(r'^popular/$', songs.views.popular, name='popular'),
 
     # Uncomment the admin/doc line below to enable admin documentation:

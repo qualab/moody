@@ -24,8 +24,18 @@ def set_mood(request, mood_id):
     account = get_account(request)
     account.mood = Mood.objects.get(pk=int(mood_id))
     account.save()
-    return None
+    return HttpResponse()
 
 
 def popular(request):
     return render(request, 'audio_list.html', {})
+
+
+def rate(request, song_name, mood_id, rating):
+    account = get_account(request)
+    song = Song.objects.get(name=request.get('song'))
+    mood = Mood.objects.get(pk=request.get('mood'))
+    selection = Selection.object.get_or_create(account=account, song=song, mood=mood)
+    result = Rating.object.get_or_create(selection=selection, rating=int(rating))
+    result.save()
+    return HttpResponse()
