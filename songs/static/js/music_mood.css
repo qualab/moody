@@ -44,9 +44,11 @@
     width: 500px;
     height: 500px;
 }
+#popupContactClose{
+    color: black;
+}
 #popupContactClose:hover {
     text-decoration: underline;
-    font-style: italic;
 }
 .popup-block{
     cursor: pointer;
