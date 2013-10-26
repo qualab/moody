@@ -19,7 +19,7 @@ h2
     /*background-size: cover;*/
 }
 .main-name{
-    color: grey;
+    color: grey !important;
     font-family: cursive;
     font-size: 42px;
 }
