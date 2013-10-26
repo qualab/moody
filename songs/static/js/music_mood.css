@@ -1,0 +1,72 @@
+.main-table{
+    margin: 0 auto;
+    width: 80%;
+    height: 600px;
+    text-align: center;
+}
+.left-side{
+    width: 30%;
+    height: inherit;
+    text-align: left;
+    background-color: #ADB8C3;
+    float: left;
+}
+.right-side{
+    width: 70%;
+    height: inherit;
+    background-color: #DAE1E8;
+    float: right;
+
+
+}
+.right-side table{
+    width: 100%;
+    height: 100%;
+    position: inherit;
+}
+.right-side table td{
+    cursor: pointer;
+    background-size: cover;
+}
+.list{
+    padding-left: 5px;
+    padding-top: 5px;
+    font-size: 13px;
+}
+.list a:hover{
+    text-decoration: underline;
+}
+/*pictures*/
+.mood-picture-0{
+    background-image: url('../images/angry_cat.jpg');
+}
+.mood-picture-1{
+    background-image: url('../images/autumn.jpg');
+}
+.mood-picture-2{
+    background-image: url('../images/friends.jpg');
+}
+.mood-picture-3{
+    background-image: url('../images/grumpy_cat.jpg');
+}
+.mood-picture-4{
+    background-image: url('../images/mood_weekends.jpg');
+}
+.mood-picture-5{
+    background-image: url('../images/nastroenie_nature.jpg');
+}
+.mood-picture-6{
+    background-image: url('../images/smile.jpg');
+}
+.mood-picture-7{
+    background-image: url('../images/troll.jpg');
+}
+.mood-picture-8{
+    background-image: url('../images/sad.jpg');
+}
+/*.mood-picture-1{*/
+    /*background-image: url('../images/dis_cat_.jpg');*/
+/*}*/
+/*.mood-picture-1{*/
+    /*background-image: url('../images/dis_cat_.jpg');*/
+/*}*/
