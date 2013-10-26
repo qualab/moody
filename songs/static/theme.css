@@ -7,18 +7,32 @@ h2
 {
     color: brown;
 }
-
-.header_style
-{
+.header_style{
+    /*background-color: #808080;*/
     background-image: url('../static/images/back_header_big.jpg');
+    height: 220px;
+    background-size: cover;
 }
+.header_style .container{
+    /*background-image: url('../static/images/back_header_big.jpg');*/
+    /*height: 220px;*/
+    /*background-size: cover;*/
+}
+.main-name{
+    color: grey !important;
+    font-family: cursive;
+    font-size: 42px;
+}
+
 body{
+    background-color: #fcd233 !important;
     padding-top: 0;
 }
 
 .sign_in_style
 {
     float: right;
+    position: inherit !important;
     color: blue;
 }
 
