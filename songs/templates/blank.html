@@ -52,11 +52,13 @@
 
     <div class="col-xs-6 col-sm-3 sidebar-offcanvas sidebar_style" id="sidebar" role="navigation">
         <div class="well sidebar-nav">
+            {% block menu %}
             <ul class="nav">
                 <li class="active"><a href="#">Рекомендации</a></li>
                 <li><a href="#">Популярные</a></li>
                 <li><a href="#">Мои</a></li>
             </ul>
+            {% endblock %}
         </div><!--/.well -->
     </div><!--/span-->
     </div><!--/row-->
