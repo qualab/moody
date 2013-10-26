@@ -66,6 +66,21 @@ function centerPopup(){
         "height": windowHeight
     });
 }
+
+function deleteSong(id)   {
+//request
+ //   httpGet('/mood/'+ $(event.target).attr('my-number'));
+//    debugger;
+    document.getElementById(id).remove();
+}
+
+function checkSong(id)   {
+//request
+    //   httpGet('/mood/'+ $(event.target).attr('my-number'));
+//    debugger;
+//    if (document.getElementById(id).checked());
+}
+
 //
 //$(document).ready(function(){
 //    $("#button").click(function(){
