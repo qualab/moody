@@ -23,31 +23,15 @@
     </script>
 
     <script type="text/javascript">
-        function Popular()
-        {
-        VK.Api.call('audio.getPopular', {}, function(r) {
-            if(r.response) {
-                var Res = {};
-                Res.audio = [];
-                for(var i=0;i<87;i++)
-                {
-                    Res.audio.push(
-                            {'id' : r.response[i].aid,
-                                'url' : r.response[i].url,
-                                'name' : r.response[i].artist+' - '+ r.response[i].title
-                            });
-                }
-            }
-        });
-        }
+
     </script>
 
     <!-- stuff you don't need -->
     <!-- makes the fonts nicer etc. -->
-<!--    <link rel="stylesheet" type="text/css" href="/static/css/index.css"/> -->
-<!--    <link rel="stylesheet" type="text/css" href="/static/css/demo.css"/>
+    <!--    <link rel="stylesheet" type="text/css" href="/static/css/index.css"/> -->
+    <!--    <link rel="stylesheet" type="text/css" href="/static/css/demo.css"/>
 
-    <!-- soundManager.useFlashBlock: related CSS -->
+        <!-- soundManager.useFlashBlock: related CSS -->
     <link rel="stylesheet" type="text/css" href="/static/css/flashblock.css"/>
 
     <style type="text/css">
@@ -76,15 +60,9 @@
 
     </style>
 
-    <script>
-        $(document).ready(function(){
-            $('body').create_list([
-                {'url': 'http://cs1-48v4.vk.me/p4/35ff0ed620eacd.mp3', 'name': 'a1'},
-                {'url': 'http://cs1-36v4.vk.me/p14/f420861076f8f5.mp3', 'name': 'a2'},
-                {'url': 'http://cs1-48v4.vk.me/p6/36d31a2f0e12a9.mp3', 'name': 'a3'}
-            ])
-        });
-    </script>
+
+    {% block gen_audio %}
+    {% endblock %}
     {{ block.super }}
 {% endblock %}
 
