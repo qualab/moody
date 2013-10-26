@@ -31,6 +31,13 @@
 }
 #openapi_user{
     color : white;
+    font-weight: bold;
+}
+#openapi_greeting{
+    color: white;
+}
+#avatar-div{
+    margin: 0 auto;
 }
 .hidden-picture{
     display: none;
