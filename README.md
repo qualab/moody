@@ -1,4 +1,4 @@
 moody
 =====
 
-Choose the songs for yuor moody.
+Выбираем песню под настроение.

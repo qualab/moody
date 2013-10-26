@@ -1,20 +1,5 @@
 from django.db import models
 
-class Account(models.Model):
-    "Аккаунт пользователя"
-
-    # поля данных
-    name = models.CharField(max_length=256, unique=True) # идентификатор аккаунта в сети
-
-    # строковое представление
-    def __str__(self):
-        return self.name
-
-    # информация для базы данных
-    class Meta:
-        db_table = 'accounts'   # имя таблицы
-
-
 class Mood(models.Model):
     "Настроение пользователя"
 
@@ -28,6 +13,22 @@ class Mood(models.Model):
     # информация для базы данных
     class Meta:
         db_table = 'moods'   # имя таблицы
+
+
+class Account(models.Model):
+    "Аккаунт пользователя"
+
+    # поля данных
+    name = models.CharField(max_length=256, unique=True) # идентификатор аккаунта в сети
+    mood = models.ForeignKey(Mood) # настроение пользователя
+
+    # строковое представление
+    def __str__(self):
+        return "{name} (Настроение: {mood})".format(name=self.name, mood=self.mood.name)
+
+    # информация для базы данных
+    class Meta:
+        db_table = 'accounts'   # имя таблицы
 
 
 class Song(models.Model):
@@ -50,17 +51,17 @@ class Selection(models.Model):
 
     # поля данных
     account = models.ForeignKey(Account)            # аккаунт пользователя
-    mood    = models.ForeignKey(Mood)               # настроение во время выбора
+    mood    = models.ForeignKey(Mood)               # настроение в момент выбора
     song    = models.ForeignKey(Song)               # одна выбранная песня из списка
     moment  = models.DateTimeField(auto_now=True)   # дата и время выбора
 
     # строковое представление
     def __str__(self):
-        return 'Аккаунт: "{account}"; Настроение: "{mood}"; Песня: "{song}"; "Время: {moment:%d.%m.%y %H:%M:%S}'.format(
-                            account=self.account.name,
-                            mood=self.mood.name,
-                            song=self.song.name,
-                            moment=self.moment)
+        return 'Пользователь: "{account}"; Настроение: {mood}; Песня: "{song}"; "Время: {moment:%d.%m.%y %H:%M:%S}'.format(
+                    account=self.account.name,
+                    mood=self.mood.name,
+                    song=self.song.name,
+                    moment=self.moment)
 
     # информация для базы данных
     class Meta:

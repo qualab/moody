@@ -10,10 +10,10 @@ admin.site.register(Mood)
 admin.site.register(Song)
 admin.site.register(Selection)
 
+import songs.views
+
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'moody.views.home', name='home'),
-    # url(r'^moody/', include('moody.foo.urls')),
+    url(r'^$', songs.views.home, name='home'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
