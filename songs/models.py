@@ -7,7 +7,7 @@ class Mood(models.Model):
 
     # поля данных
     name = models.CharField(max_length=64, unique=True, db_index=True) # краткое описание настроения
-    image = models.ImageField(upload_to='moods')
+    image = models.ImageField(upload_to='moods', null=True)
 
     # строковое представление
     def __str__(self):
