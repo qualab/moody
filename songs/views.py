@@ -26,8 +26,9 @@ def set_mood(request, mood_id):
     account.save()
     return HttpResponse()
 
-
 def popular(request):
+    account = get_account(request)
+    mood_id = str(account.mood.pk) if account and account.mood else 'no-mood'
     return render(request, 'popular.html', {'mood_id': mood_id})
 
 def rate(request, song_name, mood_id, rating):
