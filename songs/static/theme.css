@@ -10,8 +10,7 @@ h2
 
 .header_style
 {
-
-    background-color: #808080;
+    background-image: url('../static/images/back_header.jpg');
 }
 body{
     padding-top: 0;
