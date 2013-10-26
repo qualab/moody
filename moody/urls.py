@@ -10,6 +10,8 @@ admin.site.register(Mood)
 admin.site.register(Song)
 admin.site.register(Selection)
 
+from settings import MEDIA_ROOT
+
 import songs.views
 
 urlpatterns = patterns('',
@@ -20,4 +22,5 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': MEDIA_ROOT, 'show_indexes': True }),
 )
