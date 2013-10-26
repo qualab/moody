@@ -20,6 +20,7 @@ urlpatterns = patterns('',
     url(r'^rate$', songs.views.rate, name='rate'),
     url(r'^popular/$', songs.views.popular, name='popular'),
     url(r'^recomend/$', songs.views.recomend, name='recomend'),
+    url(r'^usermusic/$', songs.views.usermusic, name='usermusic'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
