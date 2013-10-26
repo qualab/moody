@@ -9,14 +9,14 @@ h2
 }
 .header_style{
     /*background-color: #808080;*/
-    /*background-image: url('../static/images/back_header_big.jpg');*/
-    /*height: 220px;*/
-    /*background-size: cover;*/
-}
-.header_style .container{
     background-image: url('../static/images/back_header_big.jpg');
     height: 220px;
     background-size: cover;
+}
+.header_style .container{
+    /*background-image: url('../static/images/back_header_big.jpg');*/
+    /*height: 220px;*/
+    /*background-size: cover;*/
 }
 .main-name{
     color: grey;
