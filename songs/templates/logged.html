@@ -1,0 +1,65 @@
+{% extends "blank.html" %}
+
+{% block head_addition %}
+    <script>
+
+
+        function logout() {
+            eraseCookie('vk_id');
+            window.location.reload();
+        }
+
+    (function ($, undefined) {
+        function dod() {
+            var user_id = getcookie('vk_id');
+            VK.Api.call('users.get', {"fields": 'photo_50'}, function (r) {
+                $('#avatar').attr('src', (r.response[0].photo_50));
+            })
+        }
+
+
+        $(document).ready(dod);
+    }(jQuery))
+    </script>
+    <script src="/static/js/mood_music.js"></script>
+    <link rel="stylesheet" href="/static/js/music_mood.css" type="text/css">
+    <link href="/static/js/jquery/no-theme/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            addRandomPictures();
+            $(".button").click(function () {
+                centerPopup();
+                loadPopup();
+            });
+            $("#popupContactClose").click(function () {
+                disablePopup();
+            });
+            //            $("#backgroundPopup").click(function(){
+            //                disablePopup();
+            //            });
+            $(document).keypress(function (e) {
+                if (e.keyCode == 27 && popupStatus == 1) {
+                    disablePopup();
+                }
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    ohlol
+{% endblock %}
+
+{% block auth %}
+    <a onclick="logout();">Выход</a>
+    <img id="avatar" src=""></img>
+    <div class="popup-block">
+        <center>
+            <div class="button mood-picture-{{ user.get_mood }}"></div>
+        </center>
+        <div id="popupContact" class="hidden-picture">
+            <a id="popupContactClose"> Закрыть </a>
+
+        </div>
+    </div>
+{% endblock %}

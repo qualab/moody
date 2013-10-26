@@ -16,6 +16,7 @@ import songs.views
 
 urlpatterns = patterns('',
     url(r'^$', songs.views.home, name='home'),
+    url(r'^mood/(\d+)$', songs.views.set_mood, name='home'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

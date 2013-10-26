@@ -23,7 +23,7 @@ class Account(models.Model):
 
     # поля данных
     name = models.CharField(max_length=256, unique=True) # идентификатор аккаунта в сети
-    mood = models.ForeignKey(Mood) # настроение пользователя
+    mood = models.ForeignKey(Mood, blank=True, null=True) # настроение пользователя
 
     # строковое представление
     def __str__(self):
