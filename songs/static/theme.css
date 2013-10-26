@@ -7,9 +7,10 @@ h2
 {
     color: brown;
 }
-
-.header_style
-{
+.header_style{
+    /*background-color: #808080;*/
+}
+.header_style .container{
     background-image: url('../static/images/back_header_big.jpg');
 }
 body{
