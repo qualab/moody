@@ -47,8 +47,9 @@ ul.sign_in_style a:hover{
 }
 .sidebar_nav_style{
 /*    padding-bottom: 200%;*/
+    position: fixed;
     height: 100%;
-    padding-right: 15%;
+    width: 15%;
 }
 .list_style{
     float: right;
