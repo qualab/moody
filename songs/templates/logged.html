@@ -1,9 +1,22 @@
-{%  extends "blank.html" %}
+{% extends "blank.html" %}
+
+{% block head_addition %}
+    <script>
+
+        function eraseCookie(name) {
+            document.cookie = name + '=; Max-Age=0'
+        }
+
+        function logout() {
+            eraseCookie('vk_id');
+        }
+    </script>
+{% endblock %}
 
 {% block content %}
     ohlol
 {% endblock %}
 
 {% block auth %}
- <a >Выход</a>
+    <a>Выход</a>
 {% endblock %}

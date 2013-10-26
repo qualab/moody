@@ -15,4 +15,4 @@ def home(request):
     if account is None:
         return render(request, 'anonimous.html', {})
     else:
-        return render(request, 'recomendations.html', {})
+        return render(request, 'logged.html', {})
