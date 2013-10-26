@@ -37,7 +37,7 @@ body{
 }
 
 ul.sign_in_style a, .home_button{
-    color: white;
+    color: orange;
 }
 
 ul.sign_in_style a
@@ -45,7 +45,7 @@ ul.sign_in_style a
     font-size: 18px;
 }
 ul.sign_in_style a:hover{
-    color: black;
+    /*color: black;*/
     cursor: pointer;
 }
 
