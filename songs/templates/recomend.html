@@ -3,7 +3,7 @@
 {% block gen_audio %}
     <script>
         $(document).ready(function () {
-            VK.Api.call('audio.getRecommendations', {user_id: user_id}, function(r) {
+            VK.Api.call('audio.getRecommendations', {user_id: getcookie('vk_id')}, function(r) {
                 if (r.response) {
                     var Res = {};
                     Res.audio = [];
