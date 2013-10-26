@@ -1,14 +1,17 @@
+# -*- coding: utf- -*-
+
 from django.db import models
 
 class Mood(models.Model):
     "Настроение пользователя"
 
     # поля данных
-    name = models.CharField(max_length=64, unique=True) # краткое описание настроения
+    name = models.CharField(max_length=64, unique=True, db_index=True) # краткое описание настроения
+    image = models.ImageField(upload_to='moods' )
 
     # строковое представление
     def __str__(self):
-        return self.name
+        return self.name.encode('utf-8')
 
     # информация для базы данных
     class Meta:
