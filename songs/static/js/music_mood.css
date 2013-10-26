@@ -29,6 +29,9 @@
     background-size: cover;
     border-radius: 25px;
 }
+#openapi_user{
+    color : white;
+}
 .hidden-picture{
     display: none;
 }
