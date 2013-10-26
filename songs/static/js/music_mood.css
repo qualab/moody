@@ -40,7 +40,7 @@
     margin-top: 5px;
 }
 #popupContact{
-    position: absolute !important;
+    position: fixed !important;
     width: 500px;
     height: 500px;
 }
