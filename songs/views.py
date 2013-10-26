@@ -16,3 +16,8 @@ def home(request):
         return render(request, 'anonimous.html', {})
     else:
         return render(request, 'logged.html', {})
+
+def set_mood(request, mid):
+    account = get_account(request)
+    return None
+
