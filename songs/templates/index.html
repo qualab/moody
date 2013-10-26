@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Авторизация</title>
+    <META content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <script src="http://vk.com/js/api/openapi.js" type="text/javascript"></script>
+</head>
+<body>
+
+
+<div id="login_button" onclick="VK.Auth.login(authInfo,8);"></div>
+<div id="win"></div>
+
+<script language="javascript">
+    var user_id = 0;
+
+    VK.init({
+        apiId:3956229
+    });
+    function authInfo(response) {
+        if (response.session) {
+            document.getElementById("login_button").style.display = "none";
+            document.getElementById('win').innerHTML = 'Вы авторизовались';
+            //alert('user: '+response.session.mid);
+            user_id = response.session.mid;
+        } else {
+            alert('not auth');
+        }
+    }
+    VK.Auth.getLoginStatus(authInfo);
+    VK.UI.button('login_button');
+
+    VK.Api.call('users.get', {uids: user_id, fields: 'photo_50'}, function(r) {
+        if(r.response) {
+            alert('Привет, ' + r.response[0].first_name+' '+ r.response[0].last_name+' '+ r.response[0].photo_50);
+        }
+    });
+
+    var d = new Date();
+    // Увеличиваем дату на 6 месяцев.
+    d.setMonth(d.getMonth() + 6);
+    setCookie('UserId',user_id,d);
+    //document.cookie();
+
+
+    //VK.Api.call('audio.getRecommendations', {user_id: user_id,count: 100}, function(r) {
+    // if(r.response) {
+        //alert(r.response[98].title);
+    // }
+    //       for(var i=0;i<91;i++)
+    //        {
+    //           var Res = {};
+    //           Res.audio = [];
+    //           Res.audio.push(['id'+r.response[i].id+';url='+ r.response[i].url+';name='+r.response[i].artist+' '+ r.response[i].title]);
+    //      }
+    //       alert(Res.audio[80]);
+    //   });
+</script>
+</body>
+</html>
