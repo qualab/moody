@@ -4,13 +4,35 @@
     <script>
 
         function eraseCookie(name) {
-            document.cookie = name + '=; Max-Age=0'
+            document.cookie = name + '=; Max-Age=0';
         }
 
         function logout() {
             eraseCookie('vk_id');
-            window.location.reload()
+            window.location.reload();
         }
+    </script>
+    <script src="/static/js/mood_music.js"></script>
+    <link rel="stylesheet" href="/static/js/music_mood.css" type="text/css">
+    <script type="text/javascript">
+        $(document).ready(function(){
+            addRandomPictures();
+            $(".button").click(function(){
+                centerPopup();
+                loadPopup();
+            });
+            $("#popupContactClose").click(function(){
+                disablePopup();
+            });
+    //            $("#backgroundPopup").click(function(){
+    //                disablePopup();
+    //            });
+            $(document).keypress(function(e){
+                if(e.keyCode==27 && popupStatus==1){
+                    disablePopup();
+                }
+            });
+        });
     </script>
 {% endblock %}
 
@@ -20,4 +42,13 @@
 
 {% block auth %}
     <a onclick="logout();">Выход</a>
+    <div class="popup-block">
+        <center>
+            <div class="button mood-picture-{{user.get_mood}}"></div>
+        </center>
+        <div id="popupContact" class="hidden-picture">
+            <a id="popupContactClose">  Закрыть   </a>
+
+        </div>
+    </div>
 {% endblock %}
