@@ -72,3 +72,19 @@ class Selection(models.Model):
         unique_together = [ # уникальное сочетание значений в следующих полях:
             ['account', 'mood', 'song']
         ]
+
+
+class Rating(models.Model):
+    "Оценка песни по настроению"
+
+    # поля данных
+    selection   = models.ForeignKey(Selection, unique=True) # выбор песни под настроение пользователем
+    rating      = models.IntegerField()                     # оценка песни под определённым настроением
+
+    # строковое представление
+    def __str__(self):
+        return u'{selection} - Оценка: {rating}'.format(selection=self.selection, rating=self.rating)
+
+    # информация для базы данных
+    class Meta:
+        db_table = 'ratings' # имя таблицы
