@@ -144,14 +144,25 @@
     /*background-image: url('../images/dis_cat_.jpg');*/
 /*}*/
 
-.favourite{
-   background-image: url('../images/gray-star-md.png');
+.active-icon{
    width: 16px;
    height: 16px;
    background-size: contain;
    cursor: pointer;
 }
 
-.favourite.star-active{
+.favourite{
+   background-image: url('../images/gray-star-md.png');
+}
+
+.favourite.active{
    background-image: url('../images/yellow-star-md.png');
+}
+
+.add-to-my{
+   background-image: url('../images/add.png');
+}
+
+.add-to-my.active{
+   background-image: url('../images/done.png');
 }

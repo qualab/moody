@@ -9,8 +9,9 @@
                     Res.audio = [];
                     for (var i = 0; i < 87; i++) {
                         Res.audio.push(
-                                {'id': r.response[i].aid,
+                                {'id': r.response[i].id,
                                     'url': r.response[i].url,
+                                    'owner': r.response[i].owner_id,
                                     'name': r.response[i].artist + ' - ' + r.response[i].title
                                 });
                     }
