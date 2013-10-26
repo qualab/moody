@@ -170,4 +170,6 @@
 
 .to-friends{
    background-image: url('../images/friends.png');
+   width: 20px;
+   height: 20px;
 }

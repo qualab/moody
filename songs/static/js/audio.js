@@ -40,7 +40,7 @@
                   VK.Api.call('wall.post', {
                      "friends_only": 1,
                      "message": "Эта песня подошла мне под настроение. Найти помогло приложение MoodMusic",
-                     "attachments": ["audio", parent.attr("owner"), "_", parent.attr("song")].join('')
+                     "attachments": ["audio", parent.attr("owner"), "_", parent.attr("song"), window.location].join('')
                   }, function (r) {
                   });
                   $(this).hide();
