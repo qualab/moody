@@ -143,3 +143,13 @@
 /*.mood-picture-1{*/
     /*background-image: url('../images/dis_cat_.jpg');*/
 /*}*/
+
+.favourite{
+   background-image: url('../images/gray-star-md.png');
+   width: 16px;
+   height: 16px;
+}
+
+.favourite.start-active{
+   background-image: url('../images/yellow-star-md.png');
+}

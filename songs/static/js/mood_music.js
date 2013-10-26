@@ -74,11 +74,13 @@ function deleteSong(id)   {
     document.getElementById(id).remove();
 }
 
-function checkSong(id)   {
+function addToMood(songId, ownerId){
+   if(!$(this).hasClass('star-active')){
+      $(this).addClass('star-active');
 //request
     //   httpGet('/mood/'+ $(event.target).attr('my-number'));
-//    debugger;
 //    if (document.getElementById(id).checked());
+   }
 }
 
 //
