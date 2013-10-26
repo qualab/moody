@@ -167,3 +167,7 @@
 .add-to-my.active{
    background-image: url('../images/done.png');
 }
+
+.to-friends{
+   background-image: url('../images/friends.png');
+}
