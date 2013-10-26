@@ -69,7 +69,7 @@ function centerPopup(){
 
 function deleteSong(id)   {
 //request
- //   httpGet('/mood/'+ $(event.target).attr('my-number'));
+    httpGet('/rate?song='+ id + '&mood=' + mood_id + '&rating=1');
 //    debugger;
     document.getElementById(id).remove();
 }
