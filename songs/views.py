@@ -15,7 +15,7 @@ def home(request):
         return render(request, 'anonimous.html', {})
     else:
         account = Account.objects.get(name=request.COOKIES.get('vk_id')) if 'vk_id' in request.COOKIES else None
-        mood_id = str(account.mood.pk) if account else 'no-mood'
+        mood_id = str(account.mood.pk) if account and account.mood else 'no-mood'
         return render(request, 'logged.html', {'mood_id': mood_id})
 
 def set_mood(request, mid):
