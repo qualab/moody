@@ -42,4 +42,10 @@ ul.sign_in_style a:hover{
 
 .sidebar_style{
     width: 15%;
+    float: left;
+    height: 100%;
+}
+
+.list_style{
+
 }
