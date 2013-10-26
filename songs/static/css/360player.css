@@ -62,7 +62,7 @@
 
 .ui360 a:hover,
 .ui360 a:focus {
- background-color:#eee;
+ text-decoration: underline;
  border-radius:3px;
  outline:none;
 }
