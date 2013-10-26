@@ -161,6 +161,7 @@
 
 .add-to-my{
    background-image: url('../images/add.png');
+   margin-left: 5px;
 }
 
 .add-to-my.active{
