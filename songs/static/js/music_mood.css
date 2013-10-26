@@ -148,8 +148,10 @@
    background-image: url('../images/gray-star-md.png');
    width: 16px;
    height: 16px;
+   background-size: contain;
+   cursor: pointer;
 }
 
-.favourite.start-active{
+.favourite.star-active{
    background-image: url('../images/yellow-star-md.png');
 }
