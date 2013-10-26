@@ -45,7 +45,12 @@ ul.sign_in_style a:hover{
     float: left;
     height: 100%;
 }
-
+.sidebar_nav_style{
+/*    padding-bottom: 200%;*/
+    height: 100%;
+    padding-right: 15%;
+}
 .list_style{
-
+    float: right;
+    width: 85%;
 }
