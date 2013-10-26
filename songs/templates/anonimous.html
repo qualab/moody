@@ -20,19 +20,9 @@
 
     <script language="javascript">
 
-        function setcookie(name, value, expires, path, domain, secure) {
-            document.cookie = name + "=" + escape(value) +
-                    ((expires) ? "; expires=" + (new Date(expires)) : "") +
-                    ((path) ? "; path=" + path : "") +
-                    ((domain) ? "; domain=" + domain : "") +
-                    ((secure) ? "; secure" : "");
-        }
 
         var user_id = 0;
 
-        VK.init({
-            apiId: 3956483
-        });
         function authInfo(response) {
             if (response.session) {
                 document.getElementById("login_button").style.display = "none";
