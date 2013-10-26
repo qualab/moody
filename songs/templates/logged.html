@@ -9,6 +9,7 @@
 
         function logout() {
             eraseCookie('vk_id');
+            window.location.reload()
         }
     </script>
 {% endblock %}
@@ -18,5 +19,5 @@
 {% endblock %}
 
 {% block auth %}
-    <a>Выход</a>
+    <a onclick="logout();">Выход</a>
 {% endblock %}
