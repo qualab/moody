@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.png">
 
-    <title>Off Canvas Template for Bootstrap</title>
+    <title>Выбор музыки под настроение</title>
 
     <!-- Bootstrap core CSS -->
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
@@ -24,6 +24,10 @@
       <script src="../../assets/js/html5shiv.js"></script>
       <script src="../../assets/js/respond.min.js"></script>
     <![endif]-->
+
+      {% block head_addition %}
+      {% endblock %}
+
   </head>
 
   <body>
@@ -39,7 +43,7 @@
         </div>
           <div class="collapse navbar-collapse">
               <ul class="nav navbar-nav sign_in_style">
-                  <li class=" sign_in_style"><a href="#">Войти</a></li>
+                  <li class=" sign_in_style">{% block auth %}<a href="#">Войти</a>{% endblock %}</li>
               </ul>
           </div><!-- /.nav-collapse -->
       </div><!-- /.container -->
@@ -71,30 +75,3 @@
     <script src="offcanvas.js"></script>
   </body>
 </html>
-
-
-
-{%  block comment %}
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset=utf-8>
-    <title>Выбор музыки под настроение</title>
-    <link rel="stylesheet" type="text/css" href="/static/theme.css">
-</head>
-<body>
-    <header>
-        <h1>Привет, {{ account.name }}</h1>
-        <h2>Ты чувствуешь {{ account.mood.name }}</h2>
-    </header>
-    <section>
-        <p>Послушай музыку: {{ song.name }}
-        <p><a href="/static/index.html">Ссылка на реальный веб-интерфейс</a>
-    </section>
-    <footer>
-        <p><small>Задание на конкурс студентов. Компания "Тензор". 2013 год.</small>
-    </footer>
-</body>
-</html>
-
-{% endblock %}
