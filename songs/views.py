@@ -21,3 +21,6 @@ def set_mood(request, mid):
     account = get_account(request)
     return None
 
+
+def popular(request):
+    return render(request, 'audio_list.html', {})
