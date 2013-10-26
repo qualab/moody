@@ -33,6 +33,7 @@ ul.sign_in_style a
 }
 ul.sign_in_style a:hover{
     color: black;
+    cursor: pointer;
 }
 
 .home_button:hover{
@@ -53,5 +54,8 @@ ul.sign_in_style a:hover{
 }
 .list_style{
     float: right;
-    width: 85%;
+    width: 83%;
+}
+.sidebar_button_style{
+
 }
