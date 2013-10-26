@@ -28,4 +28,4 @@ def set_mood(request, mood_id):
 
 
 def popular(request):
-    return render(request, 'audio_list.html', {})
+    return render(request, 'popular.html', {})
