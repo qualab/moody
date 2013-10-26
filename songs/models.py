@@ -1,4 +1,4 @@
-# -*- coding: utf- -*-
+# -*- coding: utf-8 -*-
 
 from django.db import models
 
@@ -7,11 +7,11 @@ class Mood(models.Model):
 
     # поля данных
     name = models.CharField(max_length=64, unique=True, db_index=True) # краткое описание настроения
-    image = models.ImageField(upload_to='moods' )
+    image = models.ImageField(upload_to='moods')
 
     # строковое представление
     def __str__(self):
-        return self.name.encode('utf-8')
+        return self.name
 
     # информация для базы данных
     class Meta:
@@ -27,7 +27,7 @@ class Account(models.Model):
 
     # строковое представление
     def __str__(self):
-        return "{name} (Настроение: {mood})".format(name=self.name, mood=self.mood.name)
+        return u"{name} (Настроение: {mood})".format(name=self.name, mood=self.mood.name if self.mood else u'неизвестно')
 
     # информация для базы данных
     class Meta:
@@ -60,7 +60,7 @@ class Selection(models.Model):
 
     # строковое представление
     def __str__(self):
-        return 'Пользователь: "{account}"; Настроение: {mood}; Песня: "{song}"; "Время: {moment:%d.%m.%y %H:%M:%S}'.format(
+        return u'Пользователь: "{account}"; Настроение: {mood}; Песня: "{song}"; "Время: {moment:%d.%m.%y %H:%M:%S}'.format(
                     account=self.account.name,
                     mood=self.mood.name,
                     song=self.song.name,
