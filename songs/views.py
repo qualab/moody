@@ -28,8 +28,7 @@ def set_mood(request, mood_id):
 
 
 def popular(request):
-    return render(request, 'audio_list.html', {})
-
+    return render(request, 'popular.html', {})
 
 def rate(request, song_name, mood_id, rating):
     account = get_account(request)
