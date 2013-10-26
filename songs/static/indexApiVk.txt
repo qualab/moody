@@ -1,0 +1,4 @@
+VK.init({
+          apiId: 3955788,
+          nameTransportPath: '/xd_receiver.html'
+        });
