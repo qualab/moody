@@ -6,6 +6,7 @@
 
         function logout() {
             eraseCookie('vk_id');
+            VK.Auth.logout();
             window.location.href = '/';
         }
 

@@ -17,7 +17,7 @@ def home(request):
     else:
         account = get_account(request)
         mood_id = str(account.mood.pk) if account and account.mood else 'no-mood'
-        return render(request, 'logged.html', {'mood_id': mood_id})
+        return render(request, 'recomend.html', {'mood_id': mood_id})
 
 
 def set_mood(request, mood_id):
