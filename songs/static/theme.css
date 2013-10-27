@@ -75,3 +75,9 @@ ul.sign_in_style a:hover{
 .remove_button_style{
     width: 15px;
  }
+
+
+.current {
+    font-size: 16px;
+    color: #0000BB;
+}
