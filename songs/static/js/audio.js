@@ -24,18 +24,11 @@
             var container = $('#audio_list');
             container.html(res.join(''));
             container.find('.favourite').click(function(){
-               if(!$(this).hasClass('active')){
-                  $(this).addClass('active');
-                  var parent = $(this).closest('.song_container'),
-                      mood = $('.mood-icon').attr('mood');
-                  httpGet('/rate?song='+ parent.attr("owner") + '_' + parent.attr("song") + '&mood=' + mood + '&rating=1');
-               }
-                else {
-                   $(this).removeClass('active');
-                   var parent = $(this).closest('.song_container'),
-                       mood = $('mood-icon').attr('song');
-                   httpGet('/rate?song='+ parent.attr("song") + '&mood=' + mood + '&rating=-1');
-               }
+                var parent = $(this).closest('.song_container'),
+                    mood = $('.mood-icon').attr('mood'),
+                    active = $(this).hasClass('active') ? 1 : 0;
+                $(this).toggleClass('active');
+                httpGet('/rate?song='+ parent.attr("owner") + '_' + parent.attr("song") + '&mood=' + mood + '&rating='+active);
             });
             container.find('.add-to-my').click(function(){
                if(!$(this).hasClass('active')){
