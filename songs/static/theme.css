@@ -91,4 +91,6 @@ ul.sign_in_style a:hover{
 
 .music-img{
    background-image: url('../static/images/music_no_auth.jpg');
+   background-size: 100%;
+   background-repeat: no-repeat;
 }
