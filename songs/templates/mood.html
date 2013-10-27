@@ -3,8 +3,6 @@
 {% block gen_audio %}
     <script>
         $(document).ready(function () {
-            var z = 0;
-            VK.Api.call('audio.getById', {"audios" : z}, function(r) {
             var lst = [
                 {% for i in lst %}
                     '{{ i.song.name }}' {% if not forloop.last %},{% endif %}
@@ -16,7 +14,7 @@
             VK.Api.call('audio.getById', {"audios" : lst[i]}, function(r) {
                 if (r.response) {
                     var Res = {};
-                    
+
                     Res.audio = [];
                         Res.audio.push(
                                 {'id': r.response[0].aid,
