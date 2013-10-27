@@ -52,6 +52,8 @@ def mood(request):
     if account is None:
         return render(request, 'anonimous.html', {})
     mood_id = str(account.mood.pk) if account and account.mood else 'no-mood'
+    if mood_id == 7:
+        return render(request, 'slowpoke.html', {'mood_id': mood_id})
     return render(request, 'mood.html', {'mood_id': mood_id, 'lst': Selection.objects.filter(mood__pk = mood_id, account=account)})
 
 def lucky(request):
