@@ -11,12 +11,14 @@
                     var Res = {};
                     Res.audio = [];
                     for (var i = 0; i < 87; i++) {
-                        Res.audio.push(
-                                {'id': r.response[i].aid,
-                                    'url': r.response[i].url,
-                                    'owner': r.response[i].owner_id,
-                                    'name': r.response[i].artist + ' - ' + r.response[i].title
-                                });
+                        var song = r.response[i];
+                        if(song && song.aid && song.owner_id && song.url)
+                            Res.audio.push(
+                                    {'id': song.aid,
+                                        'url': song.url,
+                                        'owner': song.owner_id,
+                                        'name': song.artist + ' - ' + song.title
+                                    });
                     }
                     $('body').create_list(Res.audio);
                 }
