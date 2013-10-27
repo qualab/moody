@@ -1,0 +1,30 @@
+{% extends "audio_list.html" %}
+
+{% block gen_audio %}
+    <script>
+        $(document).ready(function () {
+            VK.Api.call('audio.getPopular', {}, function (r) {
+                if (r.response) {
+                    var Res = {},
+                            song = {};
+                    Res.audio = [];
+                    for (var i = 0; i < r.response.length; i++) {
+                        song = r.response[i];
+                        if (song.aid && song.url && song.owner_id)
+                        {
+                            Res.audio.push(
+                                    {   'id' : song.aid,
+                                        'url' : song.url,
+                                        'owner' : song.owner_id,
+                                        'name' : song.artist+' '+ song.title
+                                    });
+                        }
+                    }
+                    $('body').create_list(Res.audio);
+                }
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block popular-class %}current{% endblock %}
