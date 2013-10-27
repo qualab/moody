@@ -55,19 +55,19 @@ ul.sign_in_style a:hover{
 }
 
 .sidebar_style{
-    width: 15%;
+    width: 18%;
     float: left;
     height: 100%;
 }
 .sidebar_nav_style{
 /*    padding-bottom: 200%;*/
-    position: fixed;
-    height: 100%;
-    width: 15%;
+    position: absolute;
+    height: 280px;
+    width: 100%;
 }
 .list_style{
     float: right;
-    width: 83%;
+    width: 80%;
 }
 .sidebar_button_style{
 
