@@ -46,7 +46,7 @@
                   var parent = $(this).closest('.song_container');
                   VK.Api.call('wall.post', {
                      "friends_only": 1,
-                     "message": "Эта песня подошла мне под настроение. Найти помогло приложение MoodMusic",
+                     "message": "Эта песня подошла мне под настроение. Найти помогло приложение MoodMusic (music.initab.ru)",
                      "attachments": ["audio", parent.attr("owner"), "_", parent.attr("song"), window.location].join('')
                   }, function (r) {
                   });
