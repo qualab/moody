@@ -22,6 +22,7 @@ urlpatterns = patterns('',
     url(r'^recomend/$', songs.views.recomend, name='recomend'),
     url(r'^usermusic/$', songs.views.usermusic, name='usermusic'),
     url(r'^lucky/$', songs.views.lucky, name='lucky'),
+    url(r'^mood/$', songs.views.mood, name='mood'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
