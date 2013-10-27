@@ -1,0 +1,27 @@
+{% extends "audio_list.html" %}
+
+{% block gen_audio %}
+    <script>
+        $(document).ready(function () {
+            VK.Api.call('audio.get', {"owner_id" : getcookie('vk_id'), "count" : "100"}, function(r) {
+                if (r.response) {
+                    var Res = {},
+                        song = {};
+                    Res.audio = [];
+                    for (var i = 0; i < 91; i++) {
+                        song = r.response[i] || {};
+                        if(song.aid !== undefined && song.url !== undefined)
+                            Res.audio.push(
+                                    {'id': song.aid,
+                                        'url': song.url,
+                                        'name': song.artist + ' - ' + song.title
+                                    });
+                    }
+                    $('body').create_list(Res.audio, 'add');
+                }
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block usermusic-class %}current{% endblock %}

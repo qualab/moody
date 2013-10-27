@@ -7,24 +7,37 @@ h2
 {
     color: brown;
 }
-
-.header_style
-{
-
-    background-color: #808080;
+.header_style{
+    /*background-color: #808080;*/
+    background-image: url('../static/images/back_header_big.jpg');
+    height: 220px;
+    background-size: cover;
 }
+.header_style .container{
+    /*background-image: url('../static/images/back_header_big.jpg');*/
+    /*height: 220p  x;*/
+    /*background-size: cover;*/
+}
+.main-name{
+    color: grey !important;
+    font-family: cursive;
+    font-size: 42px;
+}
+
 body{
+    background-color: #fcd233 !important;
     padding-top: 0;
 }
 
 .sign_in_style
 {
     float: right;
+    position: inherit !important;
     color: blue;
 }
 
 ul.sign_in_style a, .home_button{
-    color: white;
+    color: orange;
 }
 
 ul.sign_in_style a
@@ -32,7 +45,7 @@ ul.sign_in_style a
     font-size: 18px;
 }
 ul.sign_in_style a:hover{
-    color: black;
+    /*color: black;*/
     cursor: pointer;
 }
 
@@ -42,19 +55,19 @@ ul.sign_in_style a:hover{
 }
 
 .sidebar_style{
-    width: 15%;
+    width: 18%;
     float: left;
     height: 100%;
 }
 .sidebar_nav_style{
 /*    padding-bottom: 200%;*/
-    position: fixed;
-    height: 100%;
-    width: 15%;
+    position: absolute;
+    height: 280px;
+    width: 100%;
 }
 .list_style{
     float: right;
-    width: 83%;
+    width: 80%;
 }
 .sidebar_button_style{
 
@@ -62,3 +75,9 @@ ul.sign_in_style a:hover{
 .remove_button_style{
     width: 15px;
  }
+
+
+.current {
+    font-size: 16px;
+    color: #0000BB;
+}

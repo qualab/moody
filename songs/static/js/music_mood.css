@@ -16,8 +16,6 @@
     height: inherit;
     background-color: #DAE1E8;
     float: right;
-
-
 }
 .right-side table{
     width: 100%;
@@ -30,19 +28,25 @@
     border-radius: 25px;
 }
 #openapi_user{
-    color : white;
+    color : orange;
     font-weight: bold;
 }
 #openapi_greeting{
-    color: white;
+    color: orange;
 }
 #openapi_profile{
     margin: 0 auto;
-    width: 162px;
+    position: absolute;
+    /*width: 162px;*/
 }
 .exit-div{
-   margin: 0 auto;
-   width: 50px;
+    margin: 0 auto;
+    /*width: 50px;*/
+    float: right;
+}
+.exit-div a{
+    color: orange !important;
+    font-size: 14px !important;
 }
 #avatar-div{
     margin: 0 auto;
@@ -55,21 +59,27 @@
 .hidden-picture{
     display: none;
 }
+.head-background{
 
+}
 .pictures-table{
     width: inherit;
     height: inherit;
-    background-color: darkgrey;
+    /*background-color: darkgrey;*/
     margin-top: 5px;
     border-radius: 25px;
 }
 #openapi_block{
     float: right;
+    width: 50%;
 }
 #popupContact{
     position: fixed !important;
     width: 500px;
     height: 500px;
+    z-index: 1;
+    background-color: yellowgreen;
+     /*background-color: darkgrey;*/
 }
 #popupContactClose{
     color: black;
@@ -104,7 +114,7 @@
     background-image: url('../images/artleo.jpg');
 }
 .mood-picture-1{
-    background-image: url('../images/DExNC00Nj.jpg');
+    background-image: url('../images/jump.jpg');
 }
 .mood-picture-2{
     background-image: url('../images/mood_weekends.jpg');
@@ -113,7 +123,7 @@
     background-image: url('../images/grumpy_cat.jpg');
 }
 .mood-picture-4{
-    background-image: url('../images/136533.jpg');
+    background-image: url('../images/dance.jpg');
 }
 .mood-picture-5{
     background-image: url('../images/the-matrix.jpg');
@@ -122,7 +132,7 @@
     background-image: url('../images/troll.jpg');
 }
 .mood-picture-7{
-    background-image: url('../images/949zjGljYgY.jpg');
+    background-image: url('../images/slowpoke.jpg');
 }
 .mood-picture-8{
     background-image: url('../images/wolf.jpg');
@@ -133,3 +143,33 @@
 /*.mood-picture-1{*/
     /*background-image: url('../images/dis_cat_.jpg');*/
 /*}*/
+
+.active-icon{
+   width: 16px;
+   height: 16px;
+   background-size: contain;
+   cursor: pointer;
+}
+
+.favourite{
+   background-image: url('../images/gray-star-md.png');
+}
+
+.favourite.active{
+   background-image: url('../images/yellow-star-md.png');
+}
+
+.add-to-my{
+   background-image: url('../images/add.png');
+   margin-left: 5px;
+}
+
+.add-to-my.active{
+   background-image: url('../images/done.png');
+}
+
+.to-friends{
+   background-image: url('../images/friends.png');
+   width: 20px;
+   height: 20px;
+}

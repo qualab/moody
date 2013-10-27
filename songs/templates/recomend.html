@@ -1,0 +1,25 @@
+{% extends "audio_list.html" %}
+
+{% block gen_audio %}
+    <script>
+        $(document).ready(function () {
+            VK.Api.call('audio.getRecommendations', {user_id: getcookie('vk_id')}, function(r) {
+                if (r.response) {
+                    var Res = {};
+                    Res.audio = [];
+                    for (var i = 0; i < 91; i++) {
+                        Res.audio.push(
+                                {'id': r.response[i].aid,
+                                    'url': r.response[i].url,
+                                    'owner': r.response[i].owner_id,
+                                    'name': r.response[i].artist + ' - ' + r.response[i].title
+                                });
+                    }
+                    $('body').create_list(Res.audio);
+                }
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block recomend-class %}current{% endblock %}

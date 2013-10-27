@@ -17,7 +17,7 @@ def home(request):
     else:
         account = get_account(request)
         mood_id = str(account.mood.pk) if account and account.mood else 'no-mood'
-        return render(request, 'logged.html', {'mood_id': mood_id})
+        return render(request, 'recomend.html', {'mood_id': mood_id})
 
 
 def set_mood(request, mood_id):
@@ -26,9 +26,23 @@ def set_mood(request, mood_id):
     account.save()
     return HttpResponse()
 
-
 def popular(request):
-    return render(request, 'popular.html', {})
+    account = get_account(request)
+    mood_id = str(account.mood.pk) if account and account.mood else 'no-mood'
+    return render(request, 'popular.html', {'mood_id': mood_id})
+
+def recomend(request):
+    account = get_account(request)
+    mood_id = str(account.mood.pk) if account and account.mood else 'no-mood'
+    return render(request, 'recomend.html', {'mood_id': mood_id})
+
+def usermusic(request):
+    account = get_account(request)
+    mood_id = str(account.mood.pk) if account and account.mood else 'no-mood'
+    return render(request, 'usermusic.html', {'mood_id': mood_id})
+
+def usermusic(request):
+    return render(request, 'lucky.html', {})
 
 
 def rate(request, song_name, mood_id, rating):

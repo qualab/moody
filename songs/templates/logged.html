@@ -6,6 +6,7 @@
 
         function logout() {
             eraseCookie('vk_id');
+            VK.Auth.logout();
             window.location.href = '/';
         }
 
@@ -67,7 +68,7 @@
 
     <div class="popup-block">
         <center>
-            <div class="button mood-picture-{{mood_id}}"></div>
+            <div class="mood-icon button mood-picture-{{mood_id}}" mood="{{mood_id}}"></div>
         </center>
         <div id="popupContact" class="hidden-picture">
             <a id="popupContactClose">Закрыть</a>
