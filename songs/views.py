@@ -28,26 +28,36 @@ def set_mood(request, mood_id):
 
 def popular(request):
     account = get_account(request)
+    if account is None:
+        return render(request, 'anonimous.html', {})
     mood_id = str(account.mood.pk) if account and account.mood else 'no-mood'
     return render(request, 'popular.html', {'mood_id': mood_id})
 
 def recomend(request):
     account = get_account(request)
+    if account is None:
+        return render(request, 'anonimous.html', {})
     mood_id = str(account.mood.pk) if account and account.mood else 'no-mood'
     return render(request, 'recomend.html', {'mood_id': mood_id})
 
 def usermusic(request):
     account = get_account(request)
+    if account is None:
+        return render(request, 'anonimous.html', {})
     mood_id = str(account.mood.pk) if account and account.mood else 'no-mood'
     return render(request, 'usermusic.html', {'mood_id': mood_id})
 
 def mood(request):
     account = get_account(request)
+    if account is None:
+        return render(request, 'anonimous.html', {})
     mood_id = str(account.mood.pk) if account and account.mood else 'no-mood'
     return render(request, 'mood.html', {'mood_id': mood_id})
 
 def lucky(request):
     account = get_account(request)
+    if account is None:
+        return render(request, 'anonimous.html', {})
     mood_id = str(account.mood.pk) if account and account.mood else 'no-mood'
     return render(request, 'lucky.html', {'mood_id': mood_id})
 
