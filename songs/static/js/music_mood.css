@@ -144,6 +144,10 @@
     /*background-image: url('../images/dis_cat_.jpg');*/
 /*}*/
 
+.sign_in_style:hover a{
+    text-decoration: underline;
+}
+
 .active-icon{
    width: 16px;
    height: 16px;
