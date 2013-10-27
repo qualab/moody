@@ -9,17 +9,19 @@
 
             VK.Api.call('audio.search', {"q" : Search_q, "auto_complete" : "1"}, function(r) {
                 if(r.response) {
-                    var Res = {};
+                    var Res = {},
+                        song = {};
                     Res.audio = [];
                     for(var i=0;i< r.response.length;i++)
                     {
-                        if (r.response[i].aid != "undefined")
+                        song = r.response[i];
+                        if (song.aid && song.url && song.owner_id)
                         {
                         Res.audio.push(
-                                {   'id' : r.response[i].aid,
-                                    'url' : r.response[i].url,
-                                    'owner' : r.response[i].owner_id,
-                                    'name' : r.response[i].artist+' '+ r.response[i].title
+                                {   'id' : song.aid,
+                                    'url' : song.url,
+                                    'owner' : song.owner_id,
+                                    'name' : song.artist+' '+ song.title
                                 });
                         }
                     }
