@@ -8,11 +8,18 @@
 
 (function ($, undefined) {
     $.fn.extend({
-        create_list: function (list) {
+        create_list: function (list, noShow) {
             var res = [];
             for (var i = 0; i < list.length; i++) {
                 var audio = list[i];
-                res.push( '<table class="song_container" song="' + audio.id + '" owner="' + audio.owner + '"><tr><td> <div title="Отметить подходящей по настроению" class="active-icon favourite "/> </td><td><div class="ui360"><a href="'+audio.url+'">'+audio.name+'</a></div></td><td> <div class="active-icon add-to-my" title="Добавить в мои аудиозаписи"/> </td><td> <div class="active-icon to-friends" title="Рассказать друзьям"/> </td></tr></table>');
+                res.push( '<table class="song_container" song="' + audio.id + '" owner="' + audio.owner + '"><tr>');
+                if (noShow!='favotite')
+                    res.push( '<td> <div title="Отметить подходящей по настроению" class="active-icon favourite "/> </td>');
+                res.push( '<td><div class="ui360"><a href="'+audio.url+'">'+audio.name+'</a></div></td>');
+                if (noShow!='add')
+                    res.push('<td> <div class="active-icon add-to-my" title="Добавить в мои аудиозаписи"/> </td>');
+                res.push( '<td> <div class="active-icon to-friends" title="Рассказать друзьям"/> </td>');
+                res.push( '</tr></table>');
             }
             var container = $('#audio_list');
             container.html(res.join(''));

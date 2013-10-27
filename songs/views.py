@@ -47,7 +47,10 @@ def mood(request):
     return render(request, 'mood.html', {'mood_id': mood_id})
 
 def lucky(request):
-    return render(request, 'lucky.html', {})
+    account = get_account(request)
+    mood_id = str(account.mood.pk) if account and account.mood else 'no-mood'
+    return render(request, 'lucky.html', {'mood_id': mood_id})
+
 
 def rate(request):
     account = get_account(request)
