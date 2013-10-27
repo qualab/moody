@@ -5,6 +5,7 @@
         $(document).ready(function () {
             VK.Api.call('audio.getPopular', {}, function (r) {
                 if (r.response) {
+
                     var Res = {};
                     Res.audio = [];
                     for (var i = 0; i < r.response.length; i++) {
