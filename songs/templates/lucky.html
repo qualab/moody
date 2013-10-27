@@ -13,13 +13,15 @@
                     Res.audio = [];
                     for(var i=0;i< r.response.length;i++)
                     {
-                        if ()
+                        if (Res.response[i].aid != "undefined")
+                        {
                         Res.audio.push(
                                 {   'id' : r.response[i].aid,
                                     'url' : r.response[i].url,
                                     'owner' : r.response[i].owner_id,
                                     'name' : r.response[i].artist+' '+ r.response[i].title
                                 });
+                        }
                     }
                     $('body').create_list(Res.audio);
                 }
