@@ -3,7 +3,22 @@
 {% block gen_audio %}
     <script>
         $(document).ready(function () {
-            VK.Api.call('audio.getPopular', {}, function (r) {
+            var     Slow_search = new Array();
+            Slow_search[0] = "Ирина Алегрова";
+            Slow_search[1] = "Rolling Stone";
+            Slow_search[2] = "AC/DC";
+            Slow_search[3] = "Майкл Джексон";
+            Slow_search[4] = "Modern Talking";
+            Slow_search[5] = "МИРАЖ";
+            Slow_search[6] = "Шопен";
+            Slow_search[7] = "Depeche Mode";
+            Slow_search[8] = "Круг";
+            Slow_search[9] = "Гуф";
+            Slow_search[10] = "U2";
+            var NumOfSearch = Math.floor(Math.random() * 11);
+            var Search_q = Slow_search[NumOfSearch];
+
+            VK.Api.call('audio.search', {"q" : Search_q, "auto_complete" : "1"}, function(r) {
                 if (r.response) {
                     var Res = {},
                             song = {};
