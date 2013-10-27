@@ -1,0 +1,45 @@
+{% extends "audio_list.html" %}
+
+{% block gen_audio %}
+    <script>
+        $(document).ready(function () {
+            var     Slow_search = new Array();
+            Slow_search[0] = "Ирина Алегрова";
+            Slow_search[1] = "Rolling Stone";
+            Slow_search[2] = "AC/DC";
+            Slow_search[3] = "Майкл Джексон";
+            Slow_search[4] = "Modern Talking";
+            Slow_search[5] = "МИРАЖ";
+            Slow_search[6] = "Шопен";
+            Slow_search[7] = "Depeche Mode";
+            Slow_search[8] = "Круг";
+            Slow_search[9] = "Гуф";
+            Slow_search[10] = "U2";
+            var NumOfSearch = Math.floor(Math.random() * 11);
+            var Search_q = Slow_search[NumOfSearch];
+
+            VK.Api.call('audio.search', {"q" : Search_q, "auto_complete" : "1"}, function(r) {
+                if (r.response) {
+                    var Res = {},
+                            song = {};
+                    Res.audio = [];
+                    for (var i = 0; i < r.response.length; i++) {
+                        song = r.response[i];
+                        if (song.aid && song.url && song.owner_id)
+                        {
+                            Res.audio.push(
+                                    {   'id' : song.aid,
+                                        'url' : song.url,
+                                        'owner' : song.owner_id,
+                                        'name' : song.artist+' '+ song.title
+                                    });
+                        }
+                    }
+                    $('body').create_list(Res.audio);
+                }
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block mood-class %}current{% endblock %}

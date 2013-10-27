@@ -5,23 +5,25 @@
         $(document).ready(function () {
             var lst = "{% for i in lst %}{{ i.song.name }}{% if not forloop.last %},{% endif %}{% endfor %}"
 
-            for (var i=0;i<lst.length;i++)
             {
-            VK.Api.call('audio.getById', {"audios" : lst[i]}, function(r) {
-                if (r.response) {
-                    var Res = {};
+                VK.Api.call('audio.getById', {"audios": lst}, function (r) {
+                    if (r.response) {
+                        var Res = {};
 
-                    Res.audio = [];
-                        Res.audio.push(
-                                {'id': r.response[0].aid,
-                                    'url': r.response[0].url,
-                                    'owner': r.response[0].owner_id,
-                                    'name': r.response[0].artist + ' - ' + r.response[0].title
-                                });
-                }
-            });
+                        Res.audio = [];
+                        for (var i = 0; i < r.response.length; i++) {
+                            Res.audio.push(
+                                    {'id': r.response[i].aid,
+                                        'url': r.response[i].url,
+                                        'owner': r.response[i].owner_id,
+                                        'name': r.response[i].artist + ' - ' + r.response[i].title
+                                    });
+                        }
+
+                        $('body').create_list(Res.audio);
+                    }
+                });
             }
-            $('body').create_list(Res.audio);
         });
     </script>
 {% endblock %}
