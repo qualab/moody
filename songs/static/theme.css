@@ -47,7 +47,13 @@ ul.sign_in_style a
 ul.sign_in_style a:hover{
     /*color: black;*/
     cursor: pointer;
+    text-decoration: underline;
 }
+
+.intro{
+    font-size: 23px !important;
+    color: grey !important;
+}/*}*/
 
 .home_button:hover{
     color: white;

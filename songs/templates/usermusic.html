@@ -8,12 +8,13 @@
                     var Res = {},
                         song = {};
                     Res.audio = [];
-                    for (var i = 0; i < 91; i++) {
+                    for (var i = 0; i < r.response.length; i++) {
                         song = r.response[i] || {};
                         if(song.aid !== undefined && song.url !== undefined)
                             Res.audio.push(
                                     {'id': song.aid,
                                         'url': song.url,
+                                        'owner': song.owner_id,
                                         'name': song.artist + ' - ' + song.title
                                     });
                     }

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from songs.models import Account, Mood, Song, Selection
 
 
@@ -28,35 +28,43 @@ def set_mood(request, mood_id):
 
 def popular(request):
     account = get_account(request)
+    if account is None:
+        return render(request, 'anonimous.html', {})
     mood_id = str(account.mood.pk) if account and account.mood else 'no-mood'
     return render(request, 'popular.html', {'mood_id': mood_id})
 
 def recomend(request):
     account = get_account(request)
+    if account is None:
+        return render(request, 'anonimous.html', {})
     mood_id = str(account.mood.pk) if account and account.mood else 'no-mood'
     return render(request, 'recomend.html', {'mood_id': mood_id})
 
 def usermusic(request):
     account = get_account(request)
+    if account is None:
+        return render(request, 'anonimous.html', {})
     mood_id = str(account.mood.pk) if account and account.mood else 'no-mood'
     return render(request, 'usermusic.html', {'mood_id': mood_id})
 
 def mood(request):
     account = get_account(request)
+    if account is None:
+        return render(request, 'anonimous.html', {})
     mood_id = str(account.mood.pk) if account and account.mood else 'no-mood'
-    return render(request, 'mood.html', {'mood_id': mood_id})
+    return render(request, 'mood.html', {'mood_id': mood_id, 'lst': Selection.objects.filter(mood__pk = mood_id, account=account)})
 
 def lucky(request):
     account = get_account(request)
+    if account is None:
+        return render(request, 'anonimous.html', {})
     mood_id = str(account.mood.pk) if account and account.mood else 'no-mood'
     return render(request, 'lucky.html', {'mood_id': mood_id})
 
 
-def rate(request, song_name, mood_id, rating):
+def rate(request):
     account = get_account(request)
-    song = Song.objects.get(name=request.get('song'))
-    mood = Mood.objects.get(pk=request.get('mood'))
-    selection = Selection.object.get_or_create(account=account, song=song, mood=mood)
-    result = Rating.object.get_or_create(selection=selection, rating=int(rating))
-    result.save()
-    return HttpResponse()
+    song = Song.objects.get_or_create(name=request.GET.get('song'))[0]
+    mood = Mood.objects.get(pk=request.GET.get('mood'))
+    selection = Selection.objects.get_or_create(account=account, song=song, mood=mood)
+    return HttpResponse('{"status": "ok"}')

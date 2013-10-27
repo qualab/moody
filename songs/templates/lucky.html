@@ -6,18 +6,24 @@
             var Lucky_Search = new Array('А','Б','В','Г','Д','Е','Ё','Ж','З;','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я');
             var NumOfSearch = Math.floor(Math.random() * 32);
             var Search_q = Lucky_Search[NumOfSearch];
+
             VK.Api.call('audio.search', {"q" : Search_q, "auto_complete" : "1"}, function(r) {
                 if(r.response) {
-                    var Res = {};
+                    var Res = {},
+                        song = {};
                     Res.audio = [];
                     for(var i=0;i< r.response.length;i++)
                     {
+                        song = r.response[i];
+                        if (song.aid && song.url && song.owner_id)
+                        {
                         Res.audio.push(
-                                {   'id' : r.response[i].aid,
-                                    'url' : r.response[i].url,
-                                    'owner' : r.response[i].owner_id,
-                                    'name' : r.response[i].artist+' '+ r.response[i].title
+                                {   'id' : song.aid,
+                                    'url' : song.url,
+                                    'owner' : song.owner_id,
+                                    'name' : song.artist+' '+ song.title
                                 });
+                        }
                     }
                     $('body').create_list(Res.audio);
                 }
