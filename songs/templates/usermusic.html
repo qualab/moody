@@ -8,7 +8,7 @@
                     var Res = {},
                         song = {};
                     Res.audio = [];
-                    for (var i = 0; i < 91; i++) {
+                    for (var i = 0; i < r.response.length; i++) {
                         song = r.response[i] || {};
                         if(song.aid !== undefined && song.url !== undefined)
                             Res.audio.push(

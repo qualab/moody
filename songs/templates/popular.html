@@ -7,11 +7,11 @@
                 if (r.response) {
                     var Res = {};
                     Res.audio = [];
-                    for (var i = 0; i < 87; i++) {
+                    for (var i = 0; i < r.response.length; i++) {
                         Res.audio.push(
                                 {'id': r.response[i].aid,
                                     'url': r.response[i].url,
-                                    'owner': r.response[i].owner_id,
+                                    'owner' : r.response[i].owner_id,
                                     'name': r.response[i].artist + ' - ' + r.response[i].title
                                 });
                     }

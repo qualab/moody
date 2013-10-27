@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from songs.models import Account, Mood, Song, Selection
 
 
@@ -47,13 +47,14 @@ def mood(request):
     return render(request, 'mood.html', {'mood_id': mood_id})
 
 def lucky(request):
-    return render(request, 'lucky.html', {})
-
-def rate(request, song_name, mood_id, rating):
     account = get_account(request)
-    song = Song.objects.get(name=request.get('song'))
-    mood = Mood.objects.get(pk=request.get('mood'))
-    selection = Selection.object.get_or_create(account=account, song=song, mood=mood)
-    result = Rating.object.get_or_create(selection=selection, rating=int(rating))
-    result.save()
-    return HttpResponse()
+    mood_id = str(account.mood.pk) if account and account.mood else 'no-mood'
+    return render(request, 'lucky.html', {'mood_id': mood_id})
+
+
+def rate(request):
+    account = get_account(request)
+    song = Song.objects.get_or_create(name=request.GET.get('song'))[0]
+    mood = Mood.objects.get(pk=request.GET.get('mood'))
+    selection = Selection.objects.get_or_create(account=account, song=song, mood=mood)
+    return HttpResponse('{"status": "ok"}')
