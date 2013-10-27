@@ -80,4 +80,5 @@ ul.sign_in_style a:hover{
 .current {
     font-size: 16px;
     color: #0000BB;
+    font-weight: bold;
 }
