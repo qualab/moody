@@ -28,7 +28,7 @@
                   $(this).addClass('active');
                   var parent = $(this).closest('.song_container'),
                       mood = $('.mood-icon').attr('mood');
-                  httpGet('/rate?song='+ parent.attr("owner") + parent.attr("song") + '&mood=' + mood + '&rating=1');
+                  httpGet('/rate?song='+ parent.attr("owner") + '_' + parent.attr("song") + '&mood=' + mood + '&rating=1');
                }
             });
             container.find('.add-to-my').click(function(){
