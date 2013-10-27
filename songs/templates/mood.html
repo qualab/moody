@@ -5,7 +5,7 @@
         $(document).ready(function () {
             var lst = [
                 {% for i in lst %}
-                    '{{ i.song.name }}'
+                    '{{ i.song.name }}' {% if not forloop.last %},{% endif %}
                 {% endfor %}
             ]
             var Lucky_Search = new Array('А','Б','В','Г','Д','Е','Ё','Ж','З;','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я');
