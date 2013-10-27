@@ -41,7 +41,12 @@ def usermusic(request):
     mood_id = str(account.mood.pk) if account and account.mood else 'no-mood'
     return render(request, 'usermusic.html', {'mood_id': mood_id})
 
-def usermusic(request):
+def mood(request):
+    account = get_account(request)
+    mood_id = str(account.mood.pk) if account and account.mood else 'no-mood'
+    return render(request, 'mood.html', {'mood_id': mood_id})
+
+def lucky(request):
     return render(request, 'lucky.html', {})
 
 def rate(request, song_name, mood_id, rating):

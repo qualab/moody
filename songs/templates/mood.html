@@ -7,15 +7,15 @@
             var NumOfSearch = Math.floor(Math.random() * 32);
             var Search_q = Lucky_Search[NumOfSearch];
             VK.Api.call('audio.search', {"q" : Search_q, "auto_complete" : "1"}, function(r) {
-                if(r.response) {
+                if (r.response) {
                     var Res = {};
                     Res.audio = [];
-                    for(var i=0;i<30;i++)
-                    {
+                    for (var i = 0; i < 87; i++) {
                         Res.audio.push(
-                                {   'id' : r.response[i].aid,
-                                    'url' : r.response[i].url,
-                                    'name' : r.response[i].artist+' '+ r.response[i].title
+                                {'id': r.response[i].aid,
+                                    'url': r.response[i].url,
+                                    'owner': r.response[i].owner_id,
+                                    'name': r.response[i].artist + ' - ' + r.response[i].title
                                 });
                     }
                     $('body').create_list(Res.audio);
@@ -25,4 +25,4 @@
     </script>
 {% endblock %}
 
-{% block lucky-class %}current{% endblock %}
+{% block mood-class %}current{% endblock %}
