@@ -30,6 +30,7 @@ def set_mood(request, mood_id):
 def popular(request):
     return render(request, 'popular.html', {})
 
+
 def rate(request, song_name, mood_id, rating):
     account = get_account(request)
     song = Song.objects.get(name=request.get('song'))
