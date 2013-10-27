@@ -3,11 +3,7 @@
 {% block gen_audio %}
     <script>
         $(document).ready(function () {
-            var lst = [
-                {% for i in lst %}
-                    '{{ i.song.name }}' {% if not forloop.last %},{% endif %}
-                {% endfor %}
-            ]
+            var lst = "{% for i in lst %}{{ i.song.name }}{% if not forloop.last %},{% endif %}{% endfor %}"
 
             for (var i=0;i<lst.length;i++)
             {
