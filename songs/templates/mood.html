@@ -16,6 +16,7 @@
             VK.Api.call('audio.getById', {"audios" : lst[i]}, function(r) {
                 if (r.response) {
                     var Res = {};
+                    
                     Res.audio = [];
                         Res.audio.push(
                                 {'id': r.response[0].aid,
